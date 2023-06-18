@@ -1,0 +1,87 @@
+{%extends "./base.html"%}
+{%load static%}
+
+
+{%block head%}
+  
+
+{%endblock%}
+
+{%block title%}Portada{% endblock %}
+
+{%block body%}
+   <!-- Button trigger modal -->
+
+      
+   <div class="container mb-3" id="container-hora">
+    <h2 id="horaLocal" >Hora  </h2>
+    
+</div>
+
+<div class="container mb-5" id="imgNasa">
+  <h5>Imagen del dia de la NASA.</h5>
+  <h1 id="apod"></h1>
+</div>
+
+
+
+<div class="container">
+<div id="carouselExample" class="carousel slide">
+<div class="carousel-inner">
+<div class="carousel-item active">
+<img src="{% static 'IMG/nabana.webp' %}" class="d-block w-100" alt="...">
+</div>
+<div class="carousel-item">
+<img src="{% static 'IMG/plantas.jpg' %}" class="d-block w-100" alt="...">
+</div>
+<div class="carousel-item">
+<img src="{% static 'IMG/plantas2.jpg' %}" class="d-block w-100" alt="...">
+</div>
+</div>
+<button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+<span class="visually-hidden">Previous</span>
+</button>
+<button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+<span class="carousel-control-next-icon" aria-hidden="true"></span>
+<span class="visually-hidden">Next</span>
+</button>
+</div>
+</div>
+</div>
+
+
+<div class="container">
+
+<h1>Bienvenido a Fundación Huertitas</h1>
+<p>Somos Fundación Huertitas, una organización sin fines de lucro dedicada a la reforestación de parques y plazas en poblaciones de escasos recursos, nuestra misión es devolver algo de vida
+y colores. Si deseas ayudar puedes voluntariamente comprar una plantita o suscribiéndote mensualmente.   </p>
+</div>
+
+
+<br>
+<br>
+<div class="container">
+<div class="container text-center MB-5">
+<div class="row align-items-start">
+<div class="col-md-4 foto">
+<img src="{% static 'IMG/plantas footer.jpg' %}"class="img-fluid" alt="...">
+</div>
+<div class="col-md-3 foto">
+<img src="{% static 'IMG/plantas footer2.jpg' %}" class="img-fluid" alt="...">
+</div>
+<div class="col-md-3 foto">
+<img src="{% static 'IMG/plantas footer3.jpg' %}" class="img-fluid " alt="...">
+</div>
+</div>
+<br>
+</div></div>
+
+
+
+{%endblock%}
+
+{%block script%}
+
+{%endblock%}
+
