@@ -40,16 +40,26 @@
         <div class="col-lg-12">
           <div class="card mb-4">
             <div class="card-body">
-              <form action="" id="formularioUsuario">
+              <form action="/registroUsu" id="formularioUsuario"  method="POST" enctype="multipart/form-data"> {% csrf_token %}
                 <div class="container mt-3 mb-5" id="titulo-dato">
                   <h4><i class="bi bi-1-circle-fill">Datos Personales.</h4></i>
-                 </div>       
+                 </div>     
+                 <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">Nombre Usuario</p>
+                  </div>
+                  <div class="col-sm-6">
+                    <input name="txtusername" type="text" class="form-control" id="inputusername" required>
+                  </div>
+                </div>
+                
+                <hr>  
                 <div class="row">
                   <div class="col-sm-3">
                     <p class="mb-0">Nombre</p>
                   </div>
                   <div class="col-sm-6">
-                    <input name="nombre" type="text" class="form-control" id="inputNombre" required>
+                    <input name="txtnombre" type="text" class="form-control" id="inputNombre" required>
                   </div>
                 </div>
                 
@@ -59,7 +69,7 @@
                     <p class="mb-0">Apellido Paterno</p>
                   </div>
                   <div class="col-sm-6">
-                    <input name="appaterno" type="text" class="form-control" id="inputAppaterno" required>
+                    <input name="txtappaterno" type="text" class="form-control" id="inputAppaterno" required>
                   </div>
                 </div>
                 
@@ -69,21 +79,22 @@
                     <p class="mb-0">Apellido Materno</p>
                   </div>
                   <div class="col-sm-6">
-                    <input name="apmaterno" type="text" class="form-control" id="inputApmaterno"> 
+                    <input name="txtapmaterno" type="text" class="form-control" id="inputApmaterno"> 
                   </div>
                 </div>
                 <hr>
                 <div class="row">
                   <div class="col-sm-3">
-                    <p class="mb-0">Genero</p>
+                    <label for="cmbGenero">Genero:</label>
                   </div>
                   <div class="col-sm-6">
-                    <select name="genero" id="inputState" class="form-select" required>
-                                    <option value>Seleccione...</option>
-                                    <option value="nocontesta">Prefiero no contestar</option>
-                                    <option value="masculino">Masculino</option>
-                                    <option value="femenino">Femenino</option>
-                                  </select>
+                    <select name="cmbGenero" class="form-select" aria-label="Default select example">
+                      <option disabled selected value="null">Seleccione</option>
+                      {% for g in gen %}
+                      <option value="{{g.id_genero}}">{{g.nombre_genero}}</option>
+                      {% endfor %}
+                    </select>
+                                 
                   </div>
                 </div>
                 
@@ -94,7 +105,7 @@
                     <p class="mb-0">RUT</p>
                   </div>
                   <div class="col-sm-6">
-                    <input name="rut" type="text" class="form-control" id="inputRut" placeholder="12345678-9" required>
+                    <input name="txtrut" type="text" class="form-control" id="inputRut" placeholder="12345678-9" required>
                   </div>
                 </div>
                 <hr>
@@ -104,7 +115,7 @@
                     <p class="mb-0">Correo</p>
                   </div>
                   <div class="col-sm-6">
-                    <input name="correo" type="text" class="form-control" id="inputCorreo" placeholder="Correo@Correo.com" required>
+                    <input name="txtcorreo" type="text" class="form-control" id="inputCorreo" placeholder="Correo@Correo.com" required>
                   </div>
                 </div>
                 <hr>
@@ -113,7 +124,7 @@
                     <p class="mb-0">Telefono</p>
                   </div>
                   <div class="col-sm-6">
-                    <input name="telefono" type="text" class="form-control" id="inputTelefono" placeholder="EJ: 227725631" requiered>
+                    <input name="txttelefono" type="text" class="form-control" id="inputTelefono" placeholder="EJ: 227725631" requiered>
                   </div>
                 </div>
                 <hr>
@@ -122,7 +133,7 @@
                     <p class="mb-0">Celular</p>
                   </div>
                   <div class="col-sm-6">
-                    <input type="text" class="form-control" id="inputCelular">  
+                    <input name= "txtcelular" type="text" class="form-control" id="inputCelular">  
                   </div>
                 </div>
                 <hr>
@@ -153,6 +164,18 @@
                   </div>
                 </div>
 
+                <hr>
+                
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Imagen: </p>
+                </div>
+                <div class="col-sm-6">
+                <input name="txtImg" id="txtImg" type="file" class="form-control" accept="image/jpeg, image/png">
+
+                </div> 
+            
+
                               
 
  <div class="container mt-5 mb-5" id="titulo-despacho">
@@ -167,7 +190,7 @@
           <p class="mb-0">Dirección</p>
         </div>
         <div class="col-sm-6">
-          <input name="direccion" type="text" class="form-control" id="inputDireccion" placeholder="Ejemplo: Calle Extrema" required>
+          <input name="txtdireccion" type="text" class="form-control" id="inputDireccion" placeholder="Ejemplo: Calle Extrema" required>
         </div>
       </div>
       <hr>
@@ -176,7 +199,7 @@
           <p class="mb-0">Número</p>
         </div>
         <div class="col-sm-6">
-          <input name="numero" type="text" class="form-control" id="inputNumero" placeholder="Ejemplo:1321" required>
+          <input name="txtnumero" type="text" class="form-control" id="inputNumero" placeholder="Ejemplo:1321" required>
         </div>
       </div>
       <hr>
@@ -185,20 +208,16 @@
           <p class="mb-0">Depto (opcional)</p>
         </div>
         <div class="col-sm-6">
-          <input type="text" class="form-control" id="inputDepto" placeholder="Ejemplo 107">
+          <input name="txtdepto" type="text" class="form-control" id="inputDepto" placeholder="Ejemplo 107">
         </div>
       </div>
       <hr>
       <div class="row">
         <div class="col-sm-3">
-          <p class="mb-0">Región</p>
+          <p class="mb-0">Region</p>
         </div>
         <div class="col-sm-6">
-          <select name="region" id="inputRegion" class="form-select" required>
-            <option value="">Seleccione...</option>
-            <option value="1">Región 1</option>
-            <option value="2">Región 2</option>
-          </select>
+          <input name="txtregion" type="text" class="form-control" id="inputRegion">  
         </div>
       </div>
       <hr>
@@ -207,25 +226,18 @@
           <p class="mb-0">Ciudad</p>
         </div>
         <div class="col-sm-6">
-          <select name="ciudad" id="inputCiudad" class="form-select" required>
-            <option value="">Seleccione...</option>
-            <option value="1">Ciudad 1</option>
-            <option value="2">Ciudad 2</option>
-          </select>
+          <input name="txtciudad" type="text" class="form-control" id="inputCiudad">  
         </div>
       </div>
       <hr>
       <div class="row">
-        <div class="col-sm-3">
-          <p class="mb-0">Comuna</p>
-        </div>
-        <div class="col-sm-6">
-          <select name="comuna" id="inputComuna" class="form-select" required>
-            <option value="">Seleccione...</option>
-            <option value="1">Comuna 1</option>
-            <option value="2">Comuna 2</option>
-          </select>
-        </div>
+                  <div class="col-sm-3">
+                    <p class="mb-0">Comuna</p>
+                  </div>
+                  <div class="col-sm-6">
+                    <input name="txtcomuna" type="text" class="form-control" id="inputComuna">  
+                  </div>
+               
       </div>
     </div>
   </div>

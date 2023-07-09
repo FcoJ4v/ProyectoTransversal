@@ -34,15 +34,15 @@
             <div class="row">
               <div class="col-lg-4">
                 <div class="card mb-4">
-                  <div class="card-body text-center">
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6.webp" alt="avatar"
-                      class="rounded-circle img-fluid" style="width: 150px;">
-                      
-                      {% for i in usu %}
-                      <h5 class="my-3">Hola! {{}}</h5>
-                    
-                    
+                  <div class="card-body text-center" >
+                    <div class="d-flex flex-column align-items-center" id="perfil-fondo">
+                      <img src="{{ usu.img_perf.url }}" alt="avatar" height="100" class="rounded-circle img-fluid" style="width: 150px;">
+                      <h5 class="my-3 text-center">Hola, {{ usu.nombre }} {{ usu.appaterno }}</h5>
+                    </div>
                   </div>
+                  
+                  
+                  
                   <ul class="nav flex-column">
                       <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Perfil Usuario</a>
@@ -65,22 +65,37 @@
                 <div class="container">
               
                 </div>
+        
                  <fieldset>
                   <legend>Perfil Usuario. </legend>
                     <div class="col-lg-12">
                       <div class="card mb-4">
                         <div class="card-body">
-                          <form action="" id="formularioUsuario">
+                          <form action="/editarUsuario" method="POST" enctype="multipart/form-data"> {% csrf_token %}
                             <div class="container mt-3 mb-5" id="titulo-dato">
                               <h4><i class="bi bi-1-circle-fill">Datos Personales.</h4></i>
                              </div>    
                              
                              <div class="row">
                               <div class="col-sm-3">
+                                <p class="mb-0">Usuario</p>
+                              </div>
+                              <div class="col-sm-6">
+                                <input readonly value="{{ usu.username }}" name="txtusername" type="text" class="form-control">
+
+                              </div>
+                            </div>
+  
+                            
+                            
+                            <hr>
+                             <div class="row">
+                              <div class="col-sm-3">
                                 <p class="mb-0">RUT</p>
                               </div>
                               <div class="col-sm-6">
-                                <input name="rut" type="text" class="form-control" id="inputRut" disabled placeholder="12345678-9" required>
+                                <input readonly value="{{ usu.rut }}" name="txtrut" type="text" class="form-control">
+
                               </div>
                             </div>
   
@@ -93,7 +108,7 @@
                                 <p class="mb-0">Nombre</p>
                               </div>
                               <div class="col-sm-6">
-                                <input name="nombre" type="text" class="form-control" id="inputNombre" placeholder="Juan" required disabled>
+                                <input readonly  value="{{usu.nombre}}"name="txtnombre" type="text" class="form-control" id="inputNombre" >
                               </div>
                             </div>
   
@@ -104,7 +119,7 @@
                                 <p class="mb-0">Apellido Paterno</p>
                               </div>
                               <div class="col-sm-6">
-                                <input name="appaterno" type="text" class="form-control"  id="inputAppaterno" required disabled>
+                                <input readonly value="{{usu.appaterno}}"name="txtappaterno" type="text" class="form-control"  id="inputAppaterno"  >
                               </div>
                             </div>
                             
@@ -114,19 +129,18 @@
                                 <p class="mb-0">Apellido Materno</p>
                               </div>
                               <div class="col-sm-6">
-                                <input name="apmaterno" type="text" class="form-control"  id="inputApmaterno" disabled> 
+                                <input readonly value="{{usu.apmaterno}}" name="txtapmaterno" type="text" class="form-control"  id="inputApmaterno" > 
                               </div>
                             </div>
                             <hr>
                             <div class="row">
                               <div class="col-sm-3">
-                                <p class="mb-0">Genero</p>
+                                <p class="mb-0">Género</p>
                               </div>
                               <div class="col-sm-6">
-                                <input name="genero" type="text" class="form-control"  id="inputGenero" disabled> 
+                                <input readonly value="{{ usu.genero.nombre_genero }}" name="cmbGenero" type="text" class="form-control" id="inputGenero" >
                               </div>
                             </div>
-                            
                           
                             <hr>
                           
@@ -136,7 +150,7 @@
                                 <p class="mb-0">Correo</p>
                               </div>
                               <div class="col-sm-6">
-                                <input name="correo" type="text" class="form-control" id="inputCorreo" placeholder="Correo@Correo.com" required>
+                                <input value="{{usu.correo}}" name="txtcorreo" type="text" class="form-control" id="inputCorreo" placeholder="Correo@Correo.com" required>
                               </div>
                             </div>
                             <hr>
@@ -145,7 +159,7 @@
                                 <p class="mb-0">Telefono</p>
                               </div>
                               <div class="col-sm-6">
-                                <input name="telefono" type="text" class="form-control" id="inputTelefono" placeholder="EJ: 227725631" requiered>
+                                <input value="{{usu.telefono}}" name="txttelefono" type="text" class="form-control" id="inputTelefono" placeholder="EJ: 227725631" requiered>
                               </div>
                             </div>
                             <hr>
@@ -154,7 +168,7 @@
                                 <p class="mb-0">Celular</p>
                               </div>
                               <div class="col-sm-6">
-                                <input type="text" class="form-control" id="inputCelular">  
+                                <input value="{{usu.celular}}" name="txtcelular" type="text" class="form-control" id="inputCelular">  
                               </div>
                             </div>
                             <hr>
@@ -165,7 +179,7 @@
                                 </div>
                                   <div class="col-md-6">
                                       
-                                        <input name="txtPass1" type="password" class="form-control" id="inputPass1" required> 
+                                        <input value="{{usu.contraseña}}" name="txtPass1" type="password" class="form-control" id="inputPass1" required> 
                                           
                                       
                                   </div>
@@ -184,6 +198,15 @@
                                 </div>
                               </div>
                             </div>
+                            <hr>
+                            <div class="row">
+                              <div class="col-sm-3">
+                                <p class="mb-0">Imagen: </p>
+                              </div>
+                              <div class="col-sm-6">
+                                <img src="{{usu.img_perf.url}}" alt="" height="100">
+                              <input name="txtImg" id="txtImg" type="file" class="form-control">
+                              </div> 
         
                                           
          
@@ -194,77 +217,74 @@
             
             
               
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <p class="mb-0">Dirección</p>
-                    </div>
-                    <div class="col-sm-6">
-                      <input name="direccion" type="text" class="form-control" id="inputDireccion" placeholder="Ejemplo: Calle Extrema" required>
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <p class="mb-0">Número</p>
-                    </div>
-                    <div class="col-sm-6">
-                      <input name="numero" type="text" class="form-control" id="inputNumero" placeholder="Ejemplo:1321" required>
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <p class="mb-0">Depto (opcional)</p>
-                    </div>
-                    <div class="col-sm-6">
-                      <input type="text" class="form-control" id="inputDepto" placeholder="Ejemplo 107">
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <p class="mb-0">Región</p>
-                    </div>
-                    <div class="col-sm-6">
-                      <select name="region" id="inputRegion" class="form-select" required>
-                        <option value="">Seleccione...</option>
-                        <option value="1">Región 1</option>
-                        <option value="2">Región 2</option>
-                      </select>
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <p class="mb-0">Ciudad</p>
-                    </div>
-                    <div class="col-sm-6">
-                      <select name="ciudad" id="inputCiudad" class="form-select" required>
-                        <option value="">Seleccione...</option>
-                        <option value="1">Ciudad 1</option>
-                        <option value="2">Ciudad 2</option>
-                      </select>
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <p class="mb-0">Comuna</p>
-                    </div>
-                    <div class="col-sm-6">
-                      <select name="comuna" id="inputComuna" class="form-select" required>
-                        <option value="">Seleccione...</option>
-                        <option value="1">Comuna 1</option>
-                        <option value="2">Comuna 2</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
+             <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Dirección</p>
+              </div>
+              <div class="col-sm-6">
+                <input value="{{usu.direccion}}" name="txtdireccion" type="text" class="form-control" id="inputDireccion" placeholder="Ejemplo: Calle Extrema" required>
               </div>
             </div>
-            <div class="col">
-              <button name="submit" type="submit" class="btn btn-success btn-customized">Actualizar</button>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Número</p>
+              </div>
+              <div class="col-sm-6">
+                <input value="{{usu.numero}}" name="txtnumero" type="text" class="form-control" id="inputNumero" placeholder="Ejemplo:1321" required>
+              </div>
             </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Depto (opcional)</p>
+              </div>
+              <div class="col-sm-6">
+                <input value="{{usu.depto}}" name="txtdepto" type="text" class="form-control" id="inputDepto" placeholder="Ejemplo 107">
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Region</p>
+              </div>
+              <div class="col-sm-6">
+                <input value="{{usu.region}}" name="txtregion" type="text" class="form-control" id="inputRegion">  
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Ciudad</p>
+              </div>
+              <div class="col-sm-6">
+                <input value="{{usu.ciudad}}" name="txtciudad" type="text" class="form-control" id="inputCiudad">  
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+                        <div class="col-sm-3">
+                          <p class="mb-0">Comuna</p>
+                        </div>
+                        <div class="col-sm-6">
+                          <input value="{{usu.comuna}}" name="txtcomuna" type="text" class="form-control" id="inputComuna">  
+                        </div>
+                     
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-between">
+        <div class="col ml">
+          <button  class="btn btn-success btn-customized">Actualizar Cuenta</button>
+        </div>
+      
+        <div class="col ml-auto">
+          <button name="submit" type="submit" class="btn btn-success btn-customized" onclick="window.location.href = '/index'">Volver</button>
+        </div>
+      </div>
+      
+      
           </fieldset>
         </form>
    </div>

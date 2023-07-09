@@ -1,340 +1,286 @@
-@font-face{
-    font-family: miFuente; 
-    src: url("fonts/Nature\ Beauty\ Personal\ Use.ttf");
+@font-face {
+    font-family: miFuente;
+    src: url("fonts/Nature Beauty Personal Use.ttf");
 }
 
-@font-face{
+@font-face {
     font-family: reloj;
     src: url("fonts/digital-7.ttf");
-    
 }
 
-.navbar-brand{
+.navbar-brand {
     font-family: miFuente;
 }
 
-.fieldset, legend {
+.fieldset,
+legend {
     margin-top: 20px;
     all: revert;
-    
-    
 }
-#container-hora{
+
+#container-hora {
     justify-content: flex-end;
     flex-direction: row;
     display: flex;
-      
 }
 
-.card{
+.card {
     justify-content: center;
 }
-.bg-miColor{
+
+.bg-miColor {
     background-color: rgb(174, 212, 179);
 }
 
-.navbar{
-
+.navbar {
     height: 50%;
 }
 
-
-#testing{
-    background-color:rgba(220, 213, 213, 0.425);
-    
+#testing {
+    background-color: rgba(220, 213, 213, 0.425);
 }
 
-
-#ResLabel{
+#ResLabel {
     margin-left: 10px;
-    
 }
-#tablaProducto th{
+
+tr {
     color: black;
     border: solid;
     border-color: rgb(12, 12, 12);
 }
 
-#tablaProducto tr{
-    color: black;
-    border: solid;
-    border-color: rgb(12, 12, 12);
-}
-
-.modo-oscuro #tablaProducto th{
+.modo-oscuro .card th {
     color: rgb(255, 249, 249);
     border: solid;
     border-color: rgb(243, 241, 241);
 }
 
-.modo-oscuro #tablaProducto tr{
+.card th {
+    color: black;
+    border: solid;
+    border-color: rgb(0, 0, 0);
+}
+
+.modo-oscuro .table tbody tr {
     color: rgb(255, 255, 255);
     border: solid;
     border-color: rgb(255, 255, 255);
+
+}
+
+.modo-oscuro .table thead tr {
+    color: rgb(255, 255, 255);
+    border: solid;
+    border-color: rgb(255, 255, 255);
+
+}
+.modo-oscuro tbody tr:hover {
+    background-color: rgb(86, 109, 89);
+}
+
+tbody tr:hover {
+    background-color: rgb(145, 226, 156);
 }
 
 
-.modo-oscuro tbody tr:hover{
-    background-color: rgb(199, 252, 206);
-}
 
-.modo-oscuro #tablaTotal tr:hover{
-    background-color:rgb(137, 182, 116);
-}
-
-#tablaCarrito tbody tr:hover{
-    background-color:rgb(59, 151, 72)
-}
-
-.modo-oscuro #tablaCarrito tbody tr:hover{
-    background-color:rgb(137, 182, 116)
-}
-
-small{
+small {
     color: red;
 }
 
-
-
-.card-body{
-    background-color:rgba(220, 213, 213, 0.425);
+.card-body {
+    background-color: rgba(220, 213, 213, 0.425);
     justify-items: center;
-    
 }
-/* Reloj   */
-#horaLocal{
+
+legend {
+    background-color: rgb(159, 221, 167);
+    color: rgb(22, 1, 1);
+    padding: 5px 10px;
+    font-size: large;
+}
+
+/* Reloj */
+#horaLocal {
     color: rgb(37, 126, 138);
     font-family: reloj;
     font-size: 200%;
 }
 
-#tituloHora{
+#tituloHora {
     font-family: miFuente;
     color: rgb(31, 86, 117);
 }
+
 /* Reloj */
-#boton{
+
+#boton {
     align-items: center;
 }
-.error{
+
+.error {
     color: red;
 }
-#titulo-despacho h5{
+
+#titulo-despacho h5 {
     align-content: center;
-    
 }
 
-
-  legend {
+.legend {
     background-color: rgb(159, 221, 167);
     color: rgb(22, 1, 1);
     padding: 5px 10px;
     font-size: large;
-  }
-
-
+}
 
 /* Estilos del modo oscuro */
 .modo-oscuro {
     background-color: #222;
     color: #fff;
 }
-.modo-oscuro .card-body{
+
+.modo-oscuro .card-body {
     background-color: rgb(103, 99, 99);
 }
-.modo-oscuro .bg-miColor{
+
+.modo-oscuro .bg-miColor {
     background-color: rgb(6, 109, 30);
-    
 }
 
-.modo-oscuro #buscar{
-    background-color: rgb(108, 154, 52);
-    color: rgb(255, 255, 255);
-}
-
-.modo-oscuro #buscar:hover{
-    background-color: rgb(160, 177, 14);
-    color: rgb(253, 255, 255);
-}
-
-.modo-oscuro #testing{
+.modo-oscuro #perfil-fondo {
     background-color: rgb(103, 99, 99);
-    
 }
 
-.modo-oscuro .breadcrumb-item{
-    color: #fff;
-}
 
-.modo-oscuro a{
-    color: rgb(255, 255, 255);
-}
-.modo-oscuro .breadcrumb-item :active{
-    color: aquamarine   ;
-}
-.modo-oscuro a:hover{
-    color: rgba(101, 239, 115, 0.951);
-}
-.modo-oscuro .navbar-nav{
-    color:#fff;
-}
-.modo-oscuro  legend {
-    background-color: rgb(6, 109, 30);
-    color: rgb(246, 246, 246);
-}
-.modo-oscuro .error{
+.modo-oscuro .error {
     color: rgb(253, 140, 140);
 }
-.modo-oscuro .dropdown-item{
+
+.modo-oscuro .dropdown-item {
     color: #ffffff;
 }
-.modo-oscuro .dropdown-menu.show{    
+
+.modo-oscuro .dropdown-menu.show {
     background-color: rgb(22, 149, 0);
 }
 
-.modo-oscuro .dropdown-item:hover{
+.modo-oscuro .dropdown-item:hover {
     background-color: rgb(7, 113, 7);
 }
-.modo-oscuro .nav-link:active{
+
+.modo-oscuro .nav-link:active {
     color: #ffffff;
 }
 
-.modo-oscuro .flex-column{
+.modo-oscuro .flex-column {
     background-color: rgba(15, 73, 25, 0.705);
 }
 
-.modo-oscuro .form-control:disabled{
+.modo-oscuro .form-control:disabled {
     background-color: rgb(160, 182, 157);
 }
 
-#exampleModal{
+#exampleModal {
     color: #222;
 }
 
-#btnRegistro{
-    color:#222
+#btnRegistro {
+    color: #222;
 }
 
-#btnInicioSesion{
-    color:#222
+#btnInicioSesion {
+    color: #222;
 }
 
-#passwordHelpBlock{
+#passwordHelpBlock {
     color: red;
 }
 
-#imgNasa h1,h3,h5{
-   
+#imgNasa h1,
+h3,
+h5 {
     justify-content: flex-end;
     flex-direction: row;
     display: flex;
-    
 }
 
-
-
-/*Carrito de compra----------------------*/
-
-.cart-page{
+/* Carrito de compra */
+.cart-page {
     margin: 80px auto;
 }
-table{
+
+table {
     width: 100%;
     border-collapse: collapse;
 }
 
-.cart-info{
+.cart-info {
     display: flex0;
     flex-wrap: wrap;
 }
-th{
-    text-align: left;
-    padding: 5px;
-    color: rgb(252, 252, 252);
-    background: #08441560;
-    font-weight: normal;
-}
 
-.cart-info small{
-    font-weight: lighter;
-    display:flex;
-    color: white;
-        
-}
-
-
-.cart-info img{
-   width: 120px;
-    margin-top: 0%;
-}
-
-.cart-page tr{
-    background-color: rgb(110, 145, 110);
-}
-
-.cart-page td{
-    border: solid 1px;
-    border-color: rgb(155, 212, 179);
-    font-size: large
-}
-
-
-
-
-#barraNavegacion{
+.carousel-image {
     width: 100%;
-    
-}
+    height: 100;
+    object-fit: cover;
+  }
 
-#subTotal{
-    text-align: center;
-    font-weight: bold;
-    color: white;
-}
-
-#cantidad{
-    text-align: center;
-}
-
-
-
-.cart-info th {
-    border: solid;
-    border-color: rgb(8, 253, 192);
-}
-
-#total small{
-    font-size: 150%;
-    display: flex;
-    justify-content: center;
-    color: white;
-    font-weight: bold;
+#contenedor-index{
     margin-top: 5%;
-    
-}
-
-
-
-#tablaTotal td{
-    margin-top: 5%;
-    border: none;
-}
-
-#tablaTotal button{
-    
-    border: none;
     margin-bottom: 5%;
+    
 }
 
-#total{
-    text-align: center;
+.card-header{
+    background-color: rgb(116, 212, 124);
+}
+.modo-oscuro .card-header{
+    background-color: rgb(19, 155, 31);
 }
 
-#tablaCarrito p{
-    color: rgb(26, 77, 30);
+.modo-oscuro .card-footer{
+    background-color:rgb(103, 99, 99); ;
 }
 
-/*Carrito de compra----------------------*/
-.cambioColor{
-    color: red;
+.modo-oscuro #buscar {
+    background-color: rgb(108, 154, 52);
+    color: rgb(255, 255, 255);
+}
+.modo-oscuro #buscar:hover {
+    background-color: rgb(160, 177, 14);
+    color: rgb(253, 255, 255);
+}
+
+
+.modo-oscuro a:hover {
+    color: rgba(168, 255, 159, 0.951);
+}
+a:hover {
+    color: rgba(168, 255, 159, 0.951);
+}
+
+.modo-oscuro legend {
+    background-color: rgb(6, 109, 30);
+    color: rgb(246, 246, 246);
+}
+
+
+.modo-oscuro .breadcrumb-item {
+    color: #fff;
+}
+
+.modo-oscuro a {
+    color: rgb(255, 255, 255);
+}
+
+
+.modo-oscuro legend {
+    background-color: rgb(6, 109, 30);
+    color: rgb(246, 246, 246);
+}
+
+.container-catalogo{
+    margin-bottom: 10%;
+
 }

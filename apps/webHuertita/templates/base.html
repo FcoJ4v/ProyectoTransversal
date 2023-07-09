@@ -15,7 +15,7 @@
 {% block head %}
 
 {% endblock %}
-  <nav class="navbar navbar-expand-lg navbar-light bg-miColor">
+  <nav class="navbar navbar-expand-lg bg-miColor">
     <div class="container-fluid">
       <img src="{% static 'IMG/main.png' %}" alt="Logo" width="80" height="74" class="d-inline-block align-text-top mx-lg-2" >
 
@@ -26,85 +26,78 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/index">Inicio</a>
+                    <a class="nav-link " aria-current="page" href="/index">Inicio</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Productos
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Maceteros</a></li>
-                        <li><a class="dropdown-item" href="#">Tierra de Hoja</a></li>
-                        <li><a class="dropdown-item" href="#">Flores y Arbustos</a></li>
-                    </ul>
-                </li>
+                <li class="nav-item">
+                  <a class="nav-link " aria-current="page" href="/catalogo">Catalogo</a>
+              </li>
+                
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Nosotros
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Quienes Somos</a></li>
-                        <li><a class="dropdown-item" href="#">Equipo</a></li>
+                        <li><a class="dropdown-item" href="/about">Quienes Somos</a></li>
+                        <li><a class="dropdown-item" href="/equipo">Equipo</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Colabora</a>
+                    <a class="nav-link " aria-current="page" href="/colabora">Colabora</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Contactanos</a>
+                    <a class="nav-link " aria-current="page" href="/contactanos">Contactanos</a>
                 </li>
+
+    {% if user.is_authenticated and user.is_superuser %}
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Administracion
+        </a>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/agregarProductos">Productos</a></li>
+        </ul>
+    </li>
+{% endif %}
+
             </ul>
             <div class="navbar-nav">
-                <form class="d-flex me-auto" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Buscar">
-                    <button id="buscar" class="btn btn-outline-success" type="submit">Buscar</button>
-                </form>
-                <ul class="navbar-nav ms-auto me-4 ">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-cart"></i> Carrito (0)
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                     
-                        <button type="button"  class="btn btn-warning mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                          Iniciar Sesión
-                        </button>
-                        
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                          <div class="modal-dialog">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Iniciar Sesión</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                              </div>
-                        
-                              <div id="smallModal" class="modal-body">
-                        
-                                <label for="txtEmail" class="form-label">Correo Electrónico</label>
-                                <input type="text"  class="form-control" id="txtEmail" placeholder="nombre@ejemplo.com">
-                                <small id="valEmail"> Debe ingresar un Email.</small>
-                        <br>
-                        <br>
-                                <label for="txtPass" class="form-label">Contraseña</label>
-                        <input type="password"  id="txtPass" class="form-control" aria-labelledby="passwordHelpBlock" maxlength="20">
-                        <small id="valPass"> Debe ingresar una contraseña.</small>
-                              </div>
-                              <div class="modal-footer">
-                                <button  type="button"  class="btn btn-tertiary" data-bs-dismiss="modal">Cerrar</button>
-                                <a class="btn btn-tertiary" href="/registro">Registrarse</a>
-                                <button onclick="validarForm()" type="button"  class="btn btn-tertiary" data-bs-dismiss="modal">Iniciar Sesión</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        
-                    </li>
-                  <!-- <li><a class="nav-link" href="#">Registrarse</a></li> -->
-                 
-                                   
+              <form class="d-flex me-auto" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Buscar">
+                  <button id="buscar" class="btn btn-outline-success" type="submit">Buscar</button>
+              </form>
+              <ul class="navbar-nav ms-auto me-4">
+                <div class="navbar-nav">
+                  <a class="nav-link" href="#" id="carritoPopover" role="button" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Contenido del carrito">
+                    <i class="bi bi-cart"></i> Carrito
+                    {% if request.session.carrito.items %}
+                    <span class="position-absolute  translate-middle badge rounded-pill bg-danger">{{ request.session.carrito.items|length }}</span>
+                    {% endif %}
+                </a>
                 
+    </div>
+          
+      
+                  
+                  {% if user.is_authenticated %}
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Bienvenido/a, {{ user.username }}
+                          </a>
+                          <ul class="dropdown-menu">
+                            <li><a href="{% url 'mi_cuenta' id=user.rut %}" class="dropdown-item">Mi Perfil</a></li>
+                              <li><a href="{% url 'logout' %}" class="dropdown-item">Cerrar Sesión</a></li>
+                          </ul>
+                      </li>
+                  {% else %}
+                      <li class="nav-item">
+                          <a href="{% url 'login' %}" class="nav-link">Iniciar Sesión</a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="registro" class="nav-link">Registrarse</a>
+                      </li>
+                  {% endif %}
+              </ul>
+          </div>
           
           </div>
           <div class="form-check form-switch">
@@ -118,11 +111,19 @@
        
       </nav>
 
+
+
+
+
+
       {%block body%}
 
       {% endblock %}
 
-      
+
+
+
+  
     
       
 <footer class="text-center text-lg-start text-muted" style="background-color: #e2cfa4;">
@@ -196,7 +197,7 @@
             Links de Utilidad
           </h6>
           <p>
-            <a href="#!" class="text-reset">Mi cuenta</a>
+            <a href="#" class="text-reset">Mi cuenta</a>
           </p>
           <p>
             <a href="#!" class="text-reset">Registrarse</a>
@@ -246,6 +247,7 @@
 <script src="{% static 'js/jquery.validate.min.js' %}"></script>
 <script src="{% static 'js/nocturno.js' %}"></script>
 <script src="{% static 'js/apiRest.js' %}"></script>
+<script src="{% static 'js/carrito.js' %}"></script>
 
 
 

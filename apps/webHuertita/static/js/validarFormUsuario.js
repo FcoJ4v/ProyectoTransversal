@@ -4,30 +4,35 @@
 $(function(){
     $("#formularioUsuario").validate({
         rules:{
+          txtusername:{
+              required: true,
+             
+            },
+          
             rut:{
                 required: true,
                 minlength: 8
             },
-            nombre:{
+            txtnombre:{
                 required: true,
                 minlength: 3
             },
-            appaterno:{
+            txtappaterno:{
                 required: true,
                 minlength: 3
             },
-            apmaterno:{
+            txtapmaterno:{
                 required: true,
                 minlength:3
             },
-            genero:{
+            cmbGenero:{
                 required: true
             },
-            correo:{
+            txtcorreo:{
                 required: true,
                 email:true
             },
-            telefono:{
+            txttelefono:{
                 required: true,
                 minlength:9,
                 maxlength:9
@@ -42,49 +47,54 @@ $(function(){
                 minlength: 8,
                 maxlength: 20
             },
-            direccion: {
+            txtdireccion: {
                 required: true
               },
-              numero: {
+              txtnumero: {
                 required: true,
                 digits: true
               },
-              inputRegion: {
+              txtregion: {
                 required: true
               },
-              inputCiudad: {
+              txtciudad: {
                 required: true
               },
-              inputComuna: {
+              txtcomuna: {
                 required: true
               }
             
         },
         messages:{
-            nombre:{
+          txtusername:{
+                required:"Debe ingresar un nombre de usuario.",
+                
+            },
+
+            txtnombre:{
                 required:"Debe ingresar su nombre.",
                 minlength:"Minimo 3 caracteres"
             },
-            appaterno:{
+            txtappaterno:{
                 required:"Debe ingresar su apellido paterno.",
                 minlength:"Minimo 3 caracteres"
             },
-            apmaterno:{
+            txtapmaterno:{
                 required:"Debe ingresar su apellido materno. ",
                 minlength:"Minimo 3 caracteres"
             },
-            genero:{
+            cmbGenero:{
                 required:"Debe ingresar su genero."
             },
-            rut:{
+            txtrut:{
                 required:"Debe ingresar su rut",
                 minlength:"Minimo 8 caracteres"
             },
-            correo:{
+            txtcorreo:{
                 required:"El correo es obligatorio.",
                 email:"Formato correo no valido."
             },
-            telefono:{
+            txttelefono:{
                 required:"Debe ingresar su número de telefono.",
                 minlength:"Debe ingresar un número de telefono valido",
                 maxlength:"Maximo 9 números"
@@ -99,21 +109,21 @@ $(function(){
                 minlength:"Debe tener MINIMO 8 caracteres",
                 maxlength:"Debe tener MÁXIMO 20 caracteres."
             },
-            direccion: {
+              txtdireccion: {
                 required: "Por favor ingrese la dirección"
               },
-              numero: {
+              txtnumero: {
                 required: "Por favor ingrese el número",
                 digits: "Por favor ingrese solo dígitos"
               },
-              region: {
-                required: "Por favor seleccione la región"
+              txtregion: {
+                required: "Por favor ingrese la región"
               },
-              ciudad: {
-                required: "Por favor seleccione la ciudad"
+              txtciudad: {
+                required: "Por favor ingrese la ciudad"
               },
-              comuna: {
-                required: "Por favor seleccione la comuna"
+              txtcomuna: {
+                required: "Por favor ingrese la comuna"
               }
         }
     })

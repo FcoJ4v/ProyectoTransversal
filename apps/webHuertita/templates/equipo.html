@@ -1,0 +1,77 @@
+{% extends "./base.html" %}
+
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
+{% block title %} Inicio {% endblock %}
+
+{% block body%}
+
+
+
+<div class="container py-2">
+    <div class="row">
+      <div class="col">
+        <nav aria-label="breadcrumb" class="rounded-3 p-3 mb-4" id="testing">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="/index">Inicio</a></li>
+            
+            <li class="breadcrumb-item active" aria-current="page">Equipo</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+</div>   
+<section class="equipo-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h2 class="equipo-title">Conoce a nuestro increíble Equipo de Desarrollo</h2>
+      </div>
+      <div class="col-md-4">
+        <div class="equipo-member">
+          <img src="{% static 'img/member1.jpg' %}" alt="Miembro 1" class="equipo-img">
+          <h3 class="equipo-name">Nombre Miembro 1</h3>
+          <p class="equipo-position">Cargo del Miembro 1</p>
+          <div class="equipo-social">
+            <a href="#" class="equipo-social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="equipo-social-link"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="equipo-social-link"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="equipo-member">
+          <img src="{% static 'img/member2.jpg' %}" alt="Miembro 2" class="equipo-img">
+          <h3 class="equipo-name">Nombre Miembro 2</h3>
+          <p class="equipo-position">Cargo del Miembro 2</p>
+          <div class="equipo-social">
+            <a href="#" class="equipo-social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="equipo-social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="equipo-social-link"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="equipo-member">
+          <img src="{% static 'img/member3.jpg' %}" alt="Miembro 3" class="equipo-img">
+          <h3 class="equipo-name">Nombre Miembro 3</h3>
+          <p class="equipo-position">Cargo del Miembro 3</p>
+          <div class="equipo-social">
+            <a href="#" class="equipo-social-link"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="equipo-social-link"><i class="fab fa-github"></i></a>
+            <a href="#" class="equipo-social-link"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'js/funciones.js' %}"></script>
+{% endblock %}

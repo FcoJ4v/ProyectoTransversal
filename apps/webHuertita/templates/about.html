@@ -1,0 +1,63 @@
+{% extends "./base.html" %}
+
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
+{% block title %} Inicio {% endblock %}
+
+{% block body%}
+
+
+
+<div class="container py-2">
+    <div class="row">
+      <div class="col">
+        <nav aria-label="breadcrumb" class="rounded-3 p-3 mb-4" id="testing">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="/index">Inicio</a></li>
+            
+            <li class="breadcrumb-item active" aria-current="page">Acerca de</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+</div>   
+<section class="about-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="about-image">
+            <img src="{% static 'IMG/about.jpg' %}" alt="About Image" class="img-fluid">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="about-content">
+            <h2 class="about-title">Acerca de Nosotros</h2>
+            <p class="about-description">¡Saludos! Somos la Fundación Huertitas, una organización sin fines de lucro comprometida con la reforestación de parques y plazas en comunidades de escasos recursos. Nuestra misión es devolver la vida y los colores a estos espacios tan importantes para la calidad de vida de las personas.
+
+                Creemos firmemente en el poder de la naturaleza para transformar entornos urbanos y mejorar la calidad de vida de las personas. Por eso, nos dedicamos a plantar árboles, arbustos y flores en parques y plazas de comunidades desfavorecidas, brindando un espacio verde y saludable para que niños, jóvenes y adultos puedan disfrutar y conectarse con la naturaleza.
+                
+                Si te gustaría formar parte de esta causa, hay diferentes formas en las que puedes ayudar. Puedes contribuir voluntariamente comprando una plantita y uniéndote a nuestras jornadas de siembra. Con tu apoyo, podremos aumentar el número de áreas verdes y fomentar la participación comunitaria en la conservación del medio ambiente.
+                
+                Además, ofrecemos la opción de suscribirte mensualmente para apoyar nuestro trabajo de manera constante. Tu generosidad mensual nos permitirá adquirir herramientas, insumos y plantas para seguir embelleciendo parques y plazas en poblaciones de escasos recursos. Cada aporte cuenta y hace una diferencia significativa.
+                
+                También nos enfocamos en la educación ambiental, llevando a cabo talleres y charlas sobre la importancia de la reforestación, el cuidado de las plantas y la preservación del medio ambiente. Estamos comprometidos en generar conciencia sobre la importancia de proteger nuestros espacios verdes y promover prácticas sostenibles.
+                
+                ¡Únete a nosotros y se parte del cambio! Juntos podemos devolver la vitalidad y belleza a los parques y plazas de comunidades desfavorecidas, creando un entorno más saludable y resiliente para todos. Contamos con tu apoyo para seguir sembrando esperanza y transformando vidas a través de la naturaleza.
+                
+                Si deseas obtener más información sobre cómo contribuir o participar en nuestras actividades, no dudes en contactarnos. Estamos encantados de responder a todas tus preguntas y trabajar contigo en este importante proyecto de reforestación. ¡Gracias por tu interés y apoyo!</p>
+            
+            <a href="#" class="btn btn-success mt-3 mb-5">Más información</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'js/funciones.js' %}"></script>
+{% endblock %}

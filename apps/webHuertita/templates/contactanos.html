@@ -1,0 +1,69 @@
+{% extends "./base.html" %}
+
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
+{% block title %} Inicio {% endblock %}
+
+{% block body%}
+
+
+
+<div class="container py-2">
+    <div class="row">
+      <div class="col">
+        <nav aria-label="breadcrumb" class="rounded-3 p-3 mb-4" id="testing">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="/index">Inicio</a></li>
+            
+            <li class="breadcrumb-item active" aria-current="page">Contactanos</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+</div>   
+<section class="contact-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="contact-info">
+            <h2 class="contact-title">Contáctenos</h2>
+            <p class="contact-description">¡Estamos aquí para ayudarte! Si tienes alguna pregunta o consulta, no dudes en contactarnos.</p>
+            <ul class="contact-list">
+              <li><i class="bi bi-envelope"></i> Correo electrónico: info@empresa.com</li>
+              <li><i class="bi bi-phone"></i> Teléfono: +123456789</li>
+              <li><i class="bi bi-map"></i> Dirección: Calle Principal 123, Ciudad</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="contact-form">
+            <h2 class="contact-title">Envíanos un mensaje</h2>
+            <form>
+              <div class="mb-3">
+                <label for="name" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Correo electrónico</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+              </div>
+              <div class="mb-3">
+                <label for="message" class="form-label">Mensaje</label>
+                <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary mb-5">Enviar mensaje</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'js/funciones.js' %}"></script>
+{% endblock %}

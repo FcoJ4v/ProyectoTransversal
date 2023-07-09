@@ -1,0 +1,69 @@
+{% extends "./base.html" %}
+
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
+{% block title %} Inicio {% endblock %}
+
+{% block body%}
+
+
+
+<div class="container py-2">
+    <div class="row">
+      <div class="col">
+        <nav aria-label="breadcrumb" class="rounded-3 p-3 mb-4" id="testing">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="/index">Inicio</a></li>
+            
+            <li class="breadcrumb-item active" aria-current="page">Colabora</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+</div>   
+<section class="colabora-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="colabora-info">
+            <h2 class="colabora-title">¡Colabora con nosotros!</h2>
+            <p class="colabora-description">Tu apoyo es fundamental para llevar a cabo nuestra misión. Puedes colaborar de diferentes maneras:</p>
+            <ul class="colabora-list">
+              <li>Donaciones: Aceptamos donaciones en efectivo para financiar nuestros proyectos y programas.</li>
+              <li>Voluntariado: Únete a nuestro equipo de voluntarios y contribuye con tu tiempo y habilidades.</li>
+              <li>Difusión: Ayúdanos a difundir nuestra labor en tus redes sociales y entre tus contactos.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="colabora-form">
+            <h2 class="colabora-title">Haz tu donación</h2>
+            <form>
+              <div class="mb-3">
+                <label for="name" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Correo electrónico</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+              </div>
+              <div class="mb-3">
+                <label for="amount" class="form-label">Cantidad a donar</label>
+                <input type="number" class="form-control" id="amount" name="amount" required>
+              </div>
+              <button type="submit" class="btn btn-primary mb-5">Realizar donación</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'js/funciones.js' %}"></script>
+{% endblock %}
